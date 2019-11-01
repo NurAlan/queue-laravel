@@ -93,10 +93,9 @@
             },
             success: function(data) {
                 $.notify({
-                    icon: "notifications",
                     message: data.message
                 }, {
-                    type: 'success' + 'asd',
+                    type: 'success',
                     timer: 500,
                     placement: {
                         from: 'top',
@@ -112,5 +111,43 @@
             }
         })
     });
+
+    function hapus(id) {
+        $.ajax({
+            url: '{{url("user/hapus")}}/' + id,
+            type: 'delete',
+            data: {
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(data) {
+                $.notify({
+                    message: data.message
+                }, {
+                    type: 'success' + 'asd',
+                    timer: 500,
+                    placement: {
+                        from: 'top',
+                        align: 'right'
+                    }
+                })
+                setTimeout(function() {
+                    location.reload()
+                }, 800);
+            },
+            error: function(xhr) {
+                $.notify({
+                    message: 'Gagal !!'
+                }, {
+                    type: 'danger',
+                    timer: 500,
+                    placement: {
+                        from: 'top',
+                        align: 'right'
+                    }
+                })
+                console.log(xhr);
+            }
+        })
+    }
 </script>
 @endpush
