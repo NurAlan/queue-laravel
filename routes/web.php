@@ -15,6 +15,7 @@ Route::get('/', 'UsersController@index')->name('user');
 Route::get('/user/getData', 'UsersController@show')->name('user');
 Route::post('/user/store', 'UsersController@store');
 Route::delete('/user/hapus/{user}', 'UsersController@destroy');
+Route::get('/gps-perahu', 'UserController@getGps');
 // Route::prefix('/')->group(function () {
 //     route::get('/', 'UsersController@index')->name('user');
 // });

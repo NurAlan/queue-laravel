@@ -60,4 +60,9 @@ class UsersController extends Controller
         $user->delete();
         return response()->json(['message' => 'success'], 200);
     }
+
+    public function getGps(Request $request)
+    {
+        dump($request->all());
+    }
 }
